@@ -1,6 +1,6 @@
 import requests
 
-from src.telegram_bot import config
+from src.config import config
 
 
 class WeatherForecast:

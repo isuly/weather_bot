@@ -1,9 +1,8 @@
 import telebot
 
-from src.utils import load_config
+from src.config import config
 from src.weather import WeatherForecast
 
-config = load_config()
 bot = telebot.TeleBot(config['bot_id'])
 
 
