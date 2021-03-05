@@ -1,8 +1,10 @@
 import telebot
 
+from src.utils import load_config
 from src.weather import WeatherForecast
 
-bot = telebot.TeleBot('1689836173:AAEHmhMvTbRLslLvXVYh0WRJZD57q4L_2RE')
+config = load_config()
+bot = telebot.TeleBot(config['bot_id'])
 
 
 @bot.message_handler(commands=['start'])
