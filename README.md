@@ -14,3 +14,8 @@ source venv/bin/activate
 
 #### Установка зависимостей
 `pip install -r requirements.txt`
+
+## Локальный запуск проекта
+
+#### запускаемый файл
+src/telegram_bot.py
