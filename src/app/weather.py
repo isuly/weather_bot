@@ -1,6 +1,6 @@
 import requests
 
-from src.config import config
+from app.config import config
 
 
 class WeatherForecast:
