@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  weather_bot_postgres:
+    image: postgres:12.3
+    container_name: weather_bot_postgres
+    environment:
+      POSTGRES_DB: default_company
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+  weather_bot_adminer:
+    image: adminer:4.7.7
+    container_name: weather_bot_adminer
+    ports:
+      - "5555:8080"
