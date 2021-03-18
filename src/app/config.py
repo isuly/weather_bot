@@ -1,4 +1,3 @@
-from app.utils import load_config
 import pathlib
 
 from sqlalchemy.engine.url import URL, make_url

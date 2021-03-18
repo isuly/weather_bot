@@ -1,9 +1,9 @@
 import telebot
 
-from app.config import config
+from app.config import BOT_ID
 from app.weather import WeatherForecast
 
-bot = telebot.TeleBot(config['bot_id'])
+bot = telebot.TeleBot(BOT_ID)
 
 
 @bot.message_handler(commands=['start'])
