@@ -29,8 +29,5 @@ DB_DSN = config(
     ),
 )
 
-
-config = load_config()
-
-
-
+BOT_ID = config("BOT_ID")
+APP_ID = config("APP_ID")
