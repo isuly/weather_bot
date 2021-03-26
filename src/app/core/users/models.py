@@ -24,4 +24,20 @@ def get_user(username: str):
         return db.query(User).filter(User.username == username).one_or_none()
 
 
+def create_user(username, name, city=None):
+    with SessionPoolContext() as db:
+        user = User(username=username,
+                    name=name,
+                    city=city)
+        db.add(user)
+        db.commit()
+        return user
+
+
+def update_city(user, city):
+    with SessionPoolContext() as db:
+        user.city = city
+        db.commit()
+
+
 __all__ = User

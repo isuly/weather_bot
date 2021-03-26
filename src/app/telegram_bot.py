@@ -2,7 +2,7 @@ import telebot
 
 from app.config import BOT_ID
 from app.weather import WeatherForecast
-from app.core.users.models import get_user
+from app.core.users.models import get_user, create_user, update_city
 
 bot = telebot.TeleBot(BOT_ID)
 
@@ -22,11 +22,17 @@ def get_current_weather(message):
                 bot.send_message(message.chat.id, 'Send me your city')
             bot.send_message(message.chat.id, current_weather)
         else:
-            bot.send_message(message.chat.id, 'Send me your city')
+            new_user = create_user(message.chat.username, message.chat.name)
+            if new_user:
+                bot.send_message(message.chat.id, 'Send me your city')
     else:
-        pass
-        # user sends city
-        # update users city in db
+        if user:
+            update_city(user, message.text)
+        else:
+            user = create_user(message.chat.username, message.chat.name, message.text)
+        current_weather = WeatherForecast(city=user.city).get_current_weather()
+        if not current_weather:
+            bot.send_message(message.chat.id, 'Send me your city')
 
 
 bot.polling()
