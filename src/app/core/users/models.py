@@ -13,6 +13,7 @@ class User(Base):
                         default=datetime.datetime.utcnow,
                         index=False, nullable=False)
     username = Column(String())
+    name = Column(String())
     city = Column(String())
     is_active = Column(Boolean())
 
