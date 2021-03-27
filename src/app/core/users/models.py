@@ -1,5 +1,7 @@
-from sqlalchemy import Column, Boolean, String, Integer, DateTime
 import datetime
+
+from sqlalchemy import Column, Boolean, String, Integer, DateTime
+
 from app.db import Base
 from app.db.session import SessionPoolContext
 

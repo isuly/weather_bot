@@ -1,12 +1,13 @@
 import telebot
 
 from app.config import BOT_ID
-from app.weather import WeatherForecast
 from app.core.users.models import get_user, create_user, update_city
+from app.weather import WeatherForecast
 
 bot = telebot.TeleBot(BOT_ID)
 
 
+# ToDo: обновить ридми
 @bot.message_handler(commands=['start'])
 def start_message(message):
     bot.send_message(message.chat.id, 'Hi! Im weather bot! \nSend me "weather" to get current weather!')
