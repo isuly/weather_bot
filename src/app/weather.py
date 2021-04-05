@@ -13,3 +13,9 @@ class WeatherForecast:
                                 params={'q': self.city, 'APPID': APP_ID})
         if response.status_code == 200:
             return f"Current temperature is {int(response.json()['main']['temp'] - 273)}°C"
+
+    def get_weather_forecast(self):
+        response = requests.get("http://api.openweathermap.org//data/2.5/forecast",
+                                params={'q': self.city, 'APPID': APP_ID})
+        if response.status_code == 200:
+            return f"Forecast"
