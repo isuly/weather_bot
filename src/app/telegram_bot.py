@@ -27,7 +27,7 @@ def get_current_weather(message):
 
 
 @bot.message_handler(content_types=['text'])
-def get_current_weather(message):
+def update_user(message):
     user = get_user(message.chat.username)
     if user:
         update_city(user, message.text)
