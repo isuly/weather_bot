@@ -28,7 +28,16 @@ def get_current_weather(message):
 
 @bot.message_handler(commands=['weather_forecast'])
 def get_weather_forecast(message):
-    pass
+    user = get_user(message.chat.username)
+    if user:
+        weather_forecast = WeatherForecast(city=user.city).get_weather_forecast()
+        if not weather_forecast:
+            bot.send_message(message.chat.id, 'Send me your city')
+        bot.send_message(message.chat.id, str(weather_forecast))
+    else:
+        new_user = create_user(message.chat.username, message.chat.name)
+        if new_user:
+            bot.send_message(message.chat.id, 'Send me your city')
 
 
 @bot.message_handler(content_types=['text'])
