@@ -22,16 +22,16 @@ class WeatherForecast:
         for forecast in response['list']:
             if forecast['dt_txt'].split(' ')[0] in weather_forecast:
                 weather_forecast[forecast['dt_txt'].split(' ')[0]].append(
-                    [forecast['dt_txt'].split(' ')[1], f"{int(k2c(forecast['main']['temp']))}"])
+                    [forecast['dt_txt'].split(' ')[1], f"{int(k2c(forecast['main']['temp']))}°C"])
             else:
                 weather_forecast.update({
                     forecast['dt_txt'].split(' ')[0]:
-                        [[forecast['dt_txt'].split(' ')[1], f"{int(k2c(forecast['main']['temp']))}"]]})
+                        [[forecast['dt_txt'].split(' ')[1], f"{int(k2c(forecast['main']['temp']))}°C"]]})
         weather_string = ""
         for dates in weather_forecast.keys():
             weather_string += f"{dates}:\n"
             temperature_string = ""
             for weather in weather_forecast[dates]:
-                temperature_string += f"          {weather[0]}: {weather[1]}\n"
+                temperature_string += f"{' '*25}{weather[0]}: {weather[1]}\n"
             weather_string += temperature_string
         return weather_string
