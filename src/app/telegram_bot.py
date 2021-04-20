@@ -53,4 +53,9 @@ def update_user(message):
         bot.send_message(message.chat.id, 'Send me your city')
 
 
+@bot.message_handler(commands=['help'])
+def get_help_message(message):
+    pass
+
+
 bot.polling()
